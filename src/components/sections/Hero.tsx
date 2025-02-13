@@ -10,11 +10,6 @@ export default function Hero() {
     transition: { duration: 0.6 }
   };
 
-  const letterAnimation = {
-    initial: { opacity: 0, y: 50 },
-    animate: { opacity: 1, y: 0 },
-  };
-
   const name = "Min Htet Khaing".split("");
   const descriptions = [
     "A passionate full-stack developer specializing in modern web technologies.",
@@ -68,22 +63,21 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative max-w-4xl mx-auto">
-        <motion.div className="mb-4 flex justify-center">
-          {name.map((letter, index) => (
-            <motion.span
-              key={index}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400"
-              variants={letterAnimation}
-              initial="initial"
-              animate="animate"
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-              }}
+        <motion.div 
+            className="mb-4 flex justify-center"
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.6 }}
             >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
-          ))}
+            {name.map((letter, index) => (
+                <span
+                key={index}
+                className="text-5xl md:text-6xl lg:text-7xl font-bold inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 leading-normal py-3"
+                >
+                {letter === " " ? "\u00A0" : letter}
+                </span>
+            ))}
         </motion.div>
 
         <motion.div
