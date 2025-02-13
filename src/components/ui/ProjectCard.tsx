@@ -22,35 +22,52 @@ export default function ProjectCard({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ y: -5 }}
-      className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+      whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+      className="group bg-gradient-to-br from-white via-white to-blue-50 dark:from-gray-800 dark:via-gray-800 dark:to-blue-900/20 rounded-xl overflow-hidden shadow-lg backdrop-blur-sm"
     >
-      <img 
-        src={imageUrl} 
-        alt={title} 
-        className="w-full h-48 object-cover"
-      />
+      <div className="relative overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        />
+        <img 
+          src={imageUrl} 
+          alt={title} 
+          className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text">{title}</h3>
         <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
-          {technologies.map((tech) => (
-            <span 
+          {technologies.map((tech, index) => (
+            <motion.span 
               key={tech}
-              className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              className="text-sm px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 text-gray-700 dark:text-gray-300 border border-blue-200 dark:border-blue-800/50"
             >
               {tech}
-            </span>
+            </motion.span>
           ))}
         </div>
-        <a 
+        <motion.a 
           href={projectUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 dark:text-blue-400 hover:underline"
+          className="inline-flex items-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 font-medium"
+          whileHover={{ x: 5 }}
         >
-          View Project →
-        </a>
+          View Project 
+          <motion.span
+            initial={{ x: 0 }}
+            whileHover={{ x: 5 }}
+            className="ml-1"
+          >
+            →
+          </motion.span>
+        </motion.a>
       </div>
     </motion.div>
   );

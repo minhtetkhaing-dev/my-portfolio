@@ -1,49 +1,141 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TypeWriter from "../ui/TypeWriter";
 
 export default function Hero() {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const letterAnimation = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+  };
+
+  const name = "Min Htet Khaing".split("");
+  const descriptions = [
+    "A passionate full-stack developer specializing in modern web technologies.",
+    "Turning complex problems into elegant, efficient solutions.",
+    "Creating seamless user experiences with cutting-edge technology."
+  ];
+
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4">
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-5xl font-bold mb-4"
-      >
-        Min Htet Khaing
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-        className="text-xl text-gray-600 dark:text-gray-300 mb-8"
-      >
-        Web Developer | Laravel | Next.js
-      </motion.p>
+    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20" />
+
+      {/* Animated circles in background */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-        className="flex gap-4"
-      >
-        <motion.a
-          href="#contact"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+        className="absolute w-72 h-72 bg-gradient-to-r from-blue-300/30 to-cyan-300/30 dark:from-blue-500/20 dark:to-cyan-500/20 rounded-full -left-20 -top-20 blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+          rotate: [0, 90, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+        }}
+      />
+      <motion.div
+        className="absolute w-72 h-72 bg-gradient-to-r from-purple-300/30 to-pink-300/30 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full -right-20 -bottom-20 blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+          rotate: [0, -90, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          delay: 2,
+        }}
+      />
+      <motion.div
+        className="absolute w-72 h-72 bg-gradient-to-r from-yellow-200/30 to-orange-200/30 dark:from-yellow-500/20 dark:to-orange-500/20 rounded-full right-1/4 top-1/4 blur-3xl"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          delay: 1,
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative max-w-4xl mx-auto">
+        <motion.div className="mb-4 flex justify-center">
+          {name.map((letter, index) => (
+            <motion.span
+              key={index}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400"
+              variants={letterAnimation}
+              initial="initial"
+              animate="animate"
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.span>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="w-20 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto mb-6"
+          initial={{ width: 0 }}
+          animate={{ width: 80 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+        />
+
+        <motion.p
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 mb-4 font-light"
         >
-          Contact Me
-        </motion.a>
-        <motion.a
-          href="#projects"
-          className="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-2 rounded-full"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          Web Developer | Laravel | Next.js
+        </motion.p>
+
+        <div className="mb-8">
+          <TypeWriter
+            texts={descriptions}
+            className="text-lg md:text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-normal"
+            delay={1.5}
+          />
+        </div>
+
+        <motion.div
+          variants={fadeInUp}
+          initial="initial"
+          animate="animate"
+          transition={{ delay: 1, duration: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          View Projects
-        </motion.a>
-      </motion.div>
+          <motion.a
+            href="#contact"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transform transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(147, 51, 234, 0.3)" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Contact Me
+          </motion.a>
+          <motion.a
+            href="#projects"
+            className="bg-gradient-to-r from-transparent to-transparent hover:from-blue-600 hover:to-purple-600 text-blue-600 hover:text-white border-2 border-blue-600 px-8 py-3 rounded-full transform transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View Projects
+          </motion.a>
+        </motion.div>
+      </div>
     </section>
   );
 }
