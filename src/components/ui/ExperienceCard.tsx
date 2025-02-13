@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface ExperienceCardProps {
   title: string;
@@ -30,11 +31,14 @@ export default function ExperienceCard({
       className="relative bg-white/80 dark:bg-gray-800/80 rounded-xl p-6 backdrop-blur-sm shadow-xl"
     >
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
-          <img 
+        <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0 relative">
+          <Image 
             src={companyLogo} 
             alt={company}
-            className="w-full h-full object-cover"
+            fill
+            sizes="(max-width: 64px) 100vw, 64px"
+            className="object-cover"
+            priority={index < 2}
           />
         </div>
         

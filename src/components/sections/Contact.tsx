@@ -69,8 +69,8 @@ export default function Contact() {
           variants={itemVariants}
           className="text-xl text-gray-800 dark:text-gray-200 mb-12"
         >
-          I'm currently available for freelance work and full-time positions.
-          Let's build something amazing together!
+          I&apos;m currently available for freelance work and full-time positions.
+          Let&apos;s build something amazing together!
         </motion.p>
 
         <div className="space-y-8">

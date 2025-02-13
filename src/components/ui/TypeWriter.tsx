@@ -8,7 +8,7 @@ interface TypeWriterProps {
   delay?: number;
 }
 
-export default function TypeWriter({ texts = [""], className = "", delay = 0 }: TypeWriterProps) {
+export default function TypeWriter({ texts = [""], className = ""}: TypeWriterProps) {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);

@@ -11,7 +11,7 @@ export default function Experiences() {
       period: "2022 - Present",
       description: "Led development of multiple web applications using React and Node.js. Implemented CI/CD pipelines and mentored junior developers.",
       technologies: ["React", "Node.js", "TypeScript", "AWS"],
-      companyLogo: "/images/company1.png"
+      companyLogo: "/images/image.png"
     },
     {
       title: "Full Stack Developer",
@@ -19,7 +19,7 @@ export default function Experiences() {
       period: "2020 - 2022",
       description: "Developed and maintained client websites and applications. Worked with various technologies and frameworks.",
       technologies: ["Laravel", "Vue.js", "MySQL", "Docker"],
-      companyLogo: "/images/company2.png"
+      companyLogo: "/images/image.png"
     }
   ];
 

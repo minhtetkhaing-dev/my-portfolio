@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
@@ -25,14 +26,17 @@ export default function ProjectCard({
       whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
       className="group bg-gradient-to-br from-white via-white to-blue-50 dark:from-gray-800 dark:via-gray-800 dark:to-blue-900/20 rounded-xl overflow-hidden shadow-lg backdrop-blur-sm"
     >
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden h-48">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
         />
-        <img 
+        <Image 
           src={imageUrl} 
           alt={title} 
-          className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+          priority
         />
       </div>
       <div className="p-6">
