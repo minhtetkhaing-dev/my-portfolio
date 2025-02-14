@@ -19,7 +19,7 @@ export default function Contact() {
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 dark:from-blue-900/10 dark:via-purple-900/10 dark:to-pink-900/10" />
       <motion.div
-        className="absolute w-96 h-96 bg-gradient-to-r from-blue-200/20 to-purple-200/20 dark:from-blue-500/10 dark:to-purple-500/10 rounded-full -left-48 top-0 blur-3xl"
+        className="absolute w-96 h-96 bg-gradient-to-r from-blue-200/20 to-purple-200/20 dark:from-blue-500/10 dark:to-purple-500/10 rounded-full -left-48 top-0 blur-3xl hidden md:block"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -31,7 +31,7 @@ export default function Contact() {
         }}
       />
       <motion.div
-        className="absolute w-96 h-96 bg-gradient-to-r from-purple-200/20 to-pink-200/20 dark:from-purple-500/10 dark:to-pink-500/10 rounded-full -right-48 bottom-0 blur-3xl"
+        className="absolute w-96 h-96 bg-gradient-to-r from-purple-200/20 to-pink-200/20 dark:from-purple-500/10 dark:to-pink-500/10 rounded-full -right-48 bottom-0 blur-3xl hidden md:block"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -77,7 +77,7 @@ export default function Contact() {
           <motion.div
             variants={itemVariants}
           >
-            <Button href="mailto:your.email@example.com" className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-purple-500/25 transform transition-all duration-300">
+            <Button href="mailto:minhtetkhaing.dev@gmail.com" className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-purple-500/25 transform transition-all duration-300">
               Send Me an Email
             </Button>
           </motion.div>

@@ -26,7 +26,7 @@ export default function Projects() {
       {/* Animated background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 dark:from-blue-900/10 dark:via-purple-900/10 dark:to-pink-900/10" />
       <motion.div
-        className="absolute w-[500px] h-[500px] bg-gradient-to-r from-blue-200/20 to-cyan-200/20 dark:from-blue-500/10 dark:to-cyan-500/10 rounded-full -left-64 top-32 blur-3xl"
+        className="absolute w-[500px] h-[500px] bg-gradient-to-r from-blue-200/20 to-cyan-200/20 dark:from-blue-500/10 dark:to-cyan-500/10 rounded-full -left-64 top-32 blur-3xl hidden md:block"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -38,7 +38,7 @@ export default function Projects() {
         }}
       />
       <motion.div
-        className="absolute w-[500px] h-[500px] bg-gradient-to-r from-purple-200/20 to-pink-200/20 dark:from-purple-500/10 dark:to-pink-500/10 rounded-full -right-64 bottom-32 blur-3xl"
+        className="absolute w-[500px] h-[500px] bg-gradient-to-r from-purple-200/20 to-pink-200/20 dark:from-purple-500/10 dark:to-pink-500/10 rounded-full -right-64 bottom-32 blur-3xl hidden md:block"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],

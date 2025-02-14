@@ -24,7 +24,7 @@ export default function Hero() {
 
       {/* Animated circles in background */}
       <motion.div
-        className="absolute w-72 h-72 bg-gradient-to-r from-blue-300/30 to-cyan-300/30 dark:from-blue-500/20 dark:to-cyan-500/20 rounded-full -left-20 -top-20 blur-3xl"
+        className="absolute w-72 h-72 bg-gradient-to-r from-blue-300/30 to-cyan-300/30 dark:from-blue-500/20 dark:to-cyan-500/20 rounded-full -left-20 -top-20 blur-3xl hidden md:block"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -36,7 +36,7 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute w-72 h-72 bg-gradient-to-r from-purple-300/30 to-pink-300/30 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full -right-20 -bottom-20 blur-3xl"
+        className="absolute w-72 h-72 bg-gradient-to-r from-purple-300/30 to-pink-300/30 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full -right-20 -bottom-20 blur-3xl hidden md:block"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -49,7 +49,7 @@ export default function Hero() {
         }}
       />
       <motion.div
-        className="absolute w-72 h-72 bg-gradient-to-r from-yellow-200/30 to-orange-200/30 dark:from-yellow-500/20 dark:to-orange-500/20 rounded-full right-1/4 top-1/4 blur-3xl"
+        className="absolute w-72 h-72 bg-gradient-to-r from-yellow-200/30 to-orange-200/30 dark:from-yellow-500/20 dark:to-orange-500/20 rounded-full right-1/4 top-1/4 blur-3xl hidden md:block"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.2, 0.4, 0.2],

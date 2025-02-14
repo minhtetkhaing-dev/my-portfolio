@@ -7,50 +7,56 @@ export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="fixed top-5 right-5">
-      <motion.div
-        onClick={toggleTheme}
-        className="w-20 h-10 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-900 dark:via-purple-900 dark:to-pink-900 p-1 cursor-pointer relative shadow-lg"
+    <label className="inline-flex items-center cursor-pointer">
+      <input 
+        type="checkbox" 
+        className="sr-only peer" 
+        checked={theme === 'dark'}
+        onChange={toggleTheme}
+      />
+      <motion.div 
+        className="
+          relative w-14 h-8 
+          bg-gradient-to-r from-blue-100 to-purple-100 
+          dark:from-blue-900/50 dark:to-purple-900/50 
+          peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300/50 
+          dark:peer-focus:ring-blue-800/50 
+          rounded-full peer shadow-inner 
+          overflow-hidden 
+          peer-checked:after:translate-x-full 
+          rtl:peer-checked:after:-translate-x-full 
+          peer-checked:after:border-white 
+          after:content-[''] 
+          after:absolute 
+          after:top-[4px] 
+          after:start-[4px] 
+          after:bg-gradient-to-r 
+          after:from-blue-600 
+          after:to-purple-600 
+          after:border-gray-300 
+          after:rounded-full 
+          after:h-6 
+          after:w-6 
+          after:transition-all 
+          dark:border-gray-600 
+          peer-checked:bg-gradient-to-r 
+          peer-checked:from-blue-100 
+          peer-checked:to-purple-100 
+          dark:peer-checked:from-blue-900/50 
+          dark:peer-checked:to-purple-900/50
+        "
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        {/* Background stars/clouds */}
-        <div className="absolute inset-1 rounded-full overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(white_1px,transparent_1px)] dark:bg-[radial-gradient(gray_1px,transparent_1px)] [background-size:8px_8px] opacity-40" />
-        </div>
-
-        {/* Toggle handle */}
-        <motion.div
-          className="w-8 h-8 rounded-full shadow-lg flex items-center justify-center bg-gradient-to-br from-yellow-300 to-yellow-400 dark:from-slate-600 dark:to-slate-700"
-          animate={{
-            x: theme === "light" ? 0 : 40,
-            rotate: theme === "light" ? 0 : 360,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 30
-          }}
-        >
-          <motion.div
-            animate={{
-              scale: theme === "light" ? 1 : 0.8,
-              rotate: theme === "light" ? 0 : -360,
-            }}
-            transition={{ duration: 0.3 }}
-            className="relative"
-          >
-            {theme === "light" ? (
-              <span className="text-lg">☀️</span>
-            ) : (
-              <span className="text-lg">🌙</span>
-            )}
-          </motion.div>
-        </motion.div>
-
-        {/* Hover effect overlay */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 via-purple-500/20 to-pink-500/20 dark:from-blue-500/20 dark:via-purple-500/20 dark:to-pink-500/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+        <span className="absolute inset-0 flex items-center justify-between px-2 text-sm font-medium">
+          <span className={`transition-colors ${theme === 'light' ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400 dark:text-gray-600'}`}>
+            ☀️
+          </span>
+          <span className={`transition-colors ${theme === 'dark' ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400 dark:text-gray-600'}`}>
+            🌙
+          </span>
+        </span>
       </motion.div>
-    </div>
+    </label>
   );
 }
