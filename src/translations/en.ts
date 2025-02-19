@@ -45,5 +45,9 @@ export const en = {
       github: "GitHub",
       linkedin: "LinkedIn"
     }
+  },
+  settings : {
+    theme : "Theme",
+    language : "Language"
   }
 };

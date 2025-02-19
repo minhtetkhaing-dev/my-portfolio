@@ -32,7 +32,7 @@ export default function Navbar() {
             {menuItems.map((item) => (
               <motion.a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`/#${item.toLowerCase()}`}
                 className="relative group"
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}

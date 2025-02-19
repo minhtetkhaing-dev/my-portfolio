@@ -2,26 +2,11 @@
 
 import { motion } from "framer-motion";
 import ExperienceCard from "../ui/ExperienceCard";
+import { experiences as exps }from "@/data/experiences";
+import Link from "next/link";
 
 export default function Experiences() {
-  const experiences = [
-    {
-      title: "Senior Software Engineer",
-      company: "Tech Company",
-      period: "2022 - Present",
-      description: "Led development of multiple web applications using React and Node.js. Implemented CI/CD pipelines and mentored junior developers.",
-      technologies: ["React", "Node.js", "TypeScript", "AWS"],
-      companyLogo: "/images/image.png"
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Digital Agency",
-      period: "2020 - 2022",
-      description: "Developed and maintained client websites and applications. Worked with various technologies and frameworks.",
-      technologies: ["Laravel", "Vue.js", "MySQL", "Docker"],
-      companyLogo: "/images/image.png"
-    }
-  ];
+  const experiences = exps;
 
   return (
     <section id="experience" className="py-20 px-4 relative overflow-hidden">
@@ -44,13 +29,18 @@ export default function Experiences() {
           viewport={{ once: true }}
         />
 
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {experiences.map((experience, index) => (
-            <ExperienceCard 
-              key={index}
-              {...experience}
-              index={index}
-            />
+            <Link 
+              key={experience.id} 
+              href={`/experiences/${experience.id}`}
+              className="block transition-transform hover:scale-[1.02]"
+            >
+              <ExperienceCard 
+                {...experience}
+                index={index}
+              />
+            </Link>
           ))}
         </div>
       </div>

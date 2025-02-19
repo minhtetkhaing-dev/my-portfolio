@@ -2,12 +2,14 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import LanguageToggle from "./LanguageToggle";
+// import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Settings() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { translations } = useLanguage();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -61,13 +63,17 @@ export default function Settings() {
           >
             <div className="p-3 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Theme</span>
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {translations.settings['Theme'.toLowerCase().replace(/\s+/g, '') as keyof typeof translations.settings]}
+                </span>
                 <ThemeToggle />
               </div>
-              <div className="flex items-center justify-between z-[70]">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Language</span>
+              {/* <div className="flex items-center justify-between z-[70]">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {translations.settings['Language'.toLowerCase().replace(/\s+/g, '') as keyof typeof translations.settings]}
+                </span>
                 <LanguageToggle />
-              </div>
+              </div> */}
             </div>
           </motion.div>
         )}

@@ -12,7 +12,10 @@ export default function LanguageToggle() {
         type="checkbox" 
         className="sr-only peer" 
         checked={language === 'my'}
-        onChange={() => setLanguage(language === 'en' ? 'my' : 'en')}
+        onChange={() => {
+          setLanguage(language === 'en' ? 'my' : 'en');
+          window.location.reload();
+        }}
       />
       <motion.div 
         className="relative w-14 h-8 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300/50 dark:peer-focus:ring-blue-800/50 rounded-full peer shadow-inner overflow-hidden peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:start-[4px] after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:border-gray-300 after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-gradient-to-r peer-checked:from-blue-100 peer-checked:to-purple-100 dark:peer-checked:from-blue-900/50 dark:peer-checked:to-purple-900/50"

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import TypeWriter from "../ui/TypeWriter";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
   const fadeInUp = {
@@ -9,13 +10,9 @@ export default function Hero() {
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
   };
-
+  const { translations } = useLanguage();
   const name = "Min Htet Khaing".split("");
-  const descriptions = [
-    "A passionate full-stack developer specializing in modern web technologies.",
-    "Turning complex problems into elegant, efficient solutions.",
-    "Creating seamless user experiences with cutting-edge technology."
-  ];
+  const descriptions = translations.hero.descriptions;
 
   return (
     <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
@@ -94,7 +91,7 @@ export default function Hero() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 mb-4 font-light"
         >
-          Web Developer | Laravel | Next.js
+          {translations.hero.role}
         </motion.p>
 
         <div className="mb-8">

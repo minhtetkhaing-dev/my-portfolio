@@ -56,22 +56,24 @@ export default function ProjectCard({
             </motion.span>
           ))}
         </div>
-        <motion.a 
-          href={projectUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 font-medium"
-          whileHover={{ x: 5 }}
-        >
-          View Project 
-          <motion.span
-            initial={{ x: 0 }}
+        <div className="flex justify-end">
+          <motion.a 
+            href={projectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 font-medium"
             whileHover={{ x: 5 }}
-            className="ml-1"
           >
-            →
-          </motion.span>
-        </motion.a>
+            View Project 
+            <motion.span
+              initial={{ x: 0 }}
+              whileHover={{ x: 5 }}
+              className="ml-1"
+            >
+              →
+            </motion.span>
+          </motion.a>
+        </div>
       </div>
     </motion.div>
   );

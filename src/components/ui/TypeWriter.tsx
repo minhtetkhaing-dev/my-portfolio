@@ -44,7 +44,7 @@ export default function TypeWriter({ texts = [""], className = ""}: TypeWriterPr
     <div className={className}>
       <p className="min-h-[4rem]">
         {currentText}
-        <span className="animate-pulse">|</span>
+        <span className="animate-pulse">_</span>
       </p>
     </div>
   );
