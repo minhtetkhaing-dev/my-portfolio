@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between h-16">
           <motion.a 
-            href="#"
+            href="/"
             className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-transparent bg-clip-text"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

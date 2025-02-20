@@ -6,7 +6,7 @@ export const en = {
     contact: "Contact"
   },
   hero: {
-    role: "Web Developer | Laravel | Next.js",
+    role: "Fullstack Developer",
     descriptions: [
       "A passionate full-stack developer specializing in modern web technologies.",
       "Turning complex problems into elegant, efficient solutions.",

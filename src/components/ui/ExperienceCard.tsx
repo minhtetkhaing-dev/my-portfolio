@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SkillTag from "./SkillTag";
 
 interface ExperienceCardProps {
   title: string;
@@ -47,12 +48,7 @@ export default function ExperienceCard({
 
       <div className="flex flex-wrap gap-2">
         {technologies.map((tech) => (
-          <span
-            key={tech}
-            className="text-sm px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 text-gray-700 dark:text-gray-300"
-          >
-            {tech}
-          </span>
+          <SkillTag key={tech} skill={tech} />
         ))}
       </div>
 

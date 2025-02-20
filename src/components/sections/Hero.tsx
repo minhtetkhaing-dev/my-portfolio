@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import TypeWriter from "../ui/TypeWriter";
 import { useLanguage } from "@/context/LanguageContext";
+import SkillsGlobe from "../ui/SkillsGlobe";
 
 export default function Hero() {
   const fadeInUp = {
@@ -11,7 +12,7 @@ export default function Hero() {
     transition: { duration: 0.6 }
   };
   const { translations } = useLanguage();
-  const name = "Min Htet Khaing".split("");
+  // const name = "Min Htet Khaing".split("");
   const descriptions = translations.hero.descriptions;
 
   return (
@@ -67,14 +68,19 @@ export default function Hero() {
             animate="animate"
             transition={{ duration: 0.6 }}
             >
-            {name.map((letter, index) => (
+            {/* {name.map((letter, index) => (
                 <span
                 key={index}
                 className="text-5xl md:text-6xl lg:text-7xl font-bold inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 leading-normal py-3"
                 >
                 {letter === " " ? "\u00A0" : letter}
                 </span>
-            ))}
+            ))} */}
+              <span
+                className="text-5xl md:text-6xl lg:text-7xl font-bold inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 leading-normal py-3"
+                >
+                MIN HTET KHAING
+              </span>
         </motion.div>
 
         <motion.div
@@ -101,6 +107,16 @@ export default function Hero() {
             delay={1.5}
           />
         </div>
+
+        {/* Add Skills Globe */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          className="mb-8"
+        >
+          <SkillsGlobe />
+        </motion.div>
 
         <motion.div
           variants={fadeInUp}

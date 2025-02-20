@@ -5,6 +5,7 @@ import { experiences } from "@/data/experiences";
 import { useParams } from "next/navigation";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import SkillTag from "@/components/ui/SkillTag";
 
 export default function ExperiencePage() {
   const { id } = useParams();
@@ -112,13 +113,8 @@ export default function ExperiencePage() {
                   <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">{project.name}</h4>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, i) => (
-                      <span 
-                        key={i} 
-                        className="text-sm px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 text-gray-700 dark:text-gray-300 border border-blue-200 dark:border-blue-800/50"
-                      >
-                        {tech}
-                      </span>
+                    {project.technologies.map((tech) => (
+                      <SkillTag key={tech} skill={tech} />
                     ))}
                   </div>
                 </motion.div>
