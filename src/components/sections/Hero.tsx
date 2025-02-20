@@ -16,7 +16,7 @@ export default function Hero() {
   const descriptions = translations.hero.descriptions;
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+    <section className="py-16 lg:py-0 min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20" />
 
@@ -62,7 +62,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative max-w-4xl mx-auto">
         <motion.div 
-            className="mb-4 flex justify-center"
+            className="flex justify-center"
             variants={fadeInUp}
             initial="initial"
             animate="animate"
@@ -77,7 +77,7 @@ export default function Hero() {
                 </span>
             ))} */}
               <span
-                className="text-5xl md:text-6xl lg:text-7xl font-bold inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 leading-normal py-3"
+                className="text-3xl md:text-5xl lg:text-7xl font-bold inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 leading-normal py-3"
                 >
                 MIN HTET KHAING
               </span>

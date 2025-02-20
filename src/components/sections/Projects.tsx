@@ -2,24 +2,9 @@
 
 import { motion } from "framer-motion";
 import ProjectCard from "../ui/ProjectCard";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "Project 1",
-      description: "A sample project description. Replace with your actual project details.",
-      technologies: ["React", "Node.js", "MongoDB"],
-      imageUrl: "/images/image.png",
-      projectUrl: "#"
-    },
-    {
-      title: "Project 2",
-      description: "Another sample project description. Replace with your actual project details.",
-      technologies: ["Laravel", "MySQL", "Tailwind"],
-      imageUrl: "/images/image.png",
-      projectUrl: "#"
-    },
-  ];
 
   return (
     <section id="projects" className="py-20 px-4 relative overflow-hidden">

@@ -1,13 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { skills } from "@/data/skills";
 
 export default function About() {
-  const skills = [
-    "JavaScript", "TypeScript", "React", "Next.js",
-    "Laravel", "PHP", "MySQL", "Tailwind CSS", "Bootstrap",
-    "Python", "Django", "Odoo"
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -20,7 +16,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 px-4 relative overflow-hidden">
+    <section id="about" className="py-20 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 dark:from-blue-900/10 dark:via-purple-900/10 dark:to-pink-900/10" />
       <motion.div
@@ -49,7 +45,7 @@ export default function About() {
         }}
       />
 
-      <div className="max-w-4xl mx-auto relative">
+      <div className="max-w-6xl mx-auto relative">
         <motion.h2 
           className="text-4xl md:text-5xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 text-transparent bg-clip-text"
           initial={{ opacity: 0, y: -20 }}
@@ -101,23 +97,10 @@ export default function About() {
                 <motion.span
                   key={skill}
                   variants={itemVariants}
-                  whileHover={{ 
-                    scale: 1.05,
-                    background: "linear-gradient(to right, rgb(37, 99, 235), rgb(147, 51, 234))",
-                    color: "white",
-                    borderColor: "transparent"
-                  }}
-                  transition={{ 
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 17
-                  }}
                   className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 
                             dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 
                             px-4 py-2 rounded-full border border-blue-200 dark:border-gray-600
-                            shadow-sm hover:shadow-lg hover:shadow-blue-500/20 
-                            transition-all duration-150
-                            cursor-pointer text-gray-800 dark:text-gray-200"
+                            shadow-sm cursor-pointer text-gray-800 dark:text-gray-200"
                 >
                   {skill}
                 </motion.span>
