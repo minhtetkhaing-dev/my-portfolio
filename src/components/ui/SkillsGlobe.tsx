@@ -71,8 +71,13 @@ export default function SkillsGlobe() {
             autoRotate 
             autoRotateSpeed={0.4} 
             enableZoom={false}
-            minPolarAngle={Math.PI / 4}
-            maxPolarAngle={Math.PI * 3/4}
+            // minPolarAngle={Math.PI / 4}
+            // maxPolarAngle={Math.PI * 3/4}
+            minPolarAngle={0}
+            maxPolarAngle={Math.PI}
+            // Allow full rotation on all axes
+            // minAzimuthAngle={-Infinity}
+            // maxAzimuthAngle={Infinity}
           />
           {skills.map((skill, i) => (
             <SkillText 
