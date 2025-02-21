@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import TypeWriter from "../ui/TypeWriter";
 import { useLanguage } from "@/context/LanguageContext";
-import SkillsGlobe from "../ui/SkillsGlobe";
+// import SkillsGlobe from "../ui/SkillsGlobe";
+import SkillsIconGlobe from "../ui/SkillsIconGlobe";
 
 export default function Hero() {
   const fadeInUp = {
@@ -115,7 +116,8 @@ export default function Hero() {
           transition={{ delay: 2 }}
           className="mb-8"
         >
-          <SkillsGlobe />
+          {/* <SkillsGlobe /> */}
+          <SkillsIconGlobe/>
         </motion.div>
 
         <motion.div

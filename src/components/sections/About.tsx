@@ -95,14 +95,14 @@ export default function About() {
             <div className="flex flex-wrap gap-3">
               {skills.map((skill) => (
                 <motion.span
-                  key={skill}
+                  key={skill.name}
                   variants={itemVariants}
                   className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 
                             dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 
                             px-4 py-2 rounded-full border border-blue-200 dark:border-gray-600
                             shadow-sm cursor-pointer text-gray-800 dark:text-gray-200"
                 >
-                  {skill}
+                  {skill.name}
                 </motion.span>
               ))}
             </div>
