@@ -82,7 +82,7 @@ export default function SkillsGlobe() {
           {skills.map((skill, i) => (
             <SkillText 
               key={i} 
-              text={skill} 
+              text={skill.name} 
               position={calculatePosition(i, skills.length, 3)} 
             />
           ))}
