@@ -519,6 +519,19 @@
     font-size: 1.25rem; font-weight: 600;
     color: var(--mist); margin-bottom: 0.3rem;
   }
+  .exp-country {
+    display: flex; align-items: center; gap: 0.45rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.08em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--soft-copy);
+    margin-bottom: 0.7rem;
+  }
+  .exp-country-flag {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
   .exp-type {
     font-family: 'DM Mono', monospace;
     font-size: 0.7rem; letter-spacing: 0.08em;
@@ -600,6 +613,12 @@
   .contact-link-icon {
     font-size: 1.1rem; width: 24px; text-align: center;
     position: relative; z-index: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .contact-icon-svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: block;
   }
   .contact-link-text {
     position: relative; z-index: 1;

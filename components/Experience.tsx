@@ -17,6 +17,10 @@ export default function Experience() {
             <div className="exp-meta">
               <p className="exp-date">{experience.date}</p>
               <p className="exp-company">{experience.company}</p>
+              <p className="exp-country">
+                <span className="exp-country-flag">{experience.flag}</span>
+                <span>{experience.country}</span>
+              </p>
               <span className="exp-type">{experience.type}</span>
             </div>
             <div className="exp-content">

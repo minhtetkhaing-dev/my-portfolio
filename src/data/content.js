@@ -1,7 +1,7 @@
 export const PHRASES = [
   'I craft scalable, elegant web applications — from architecture to pixel-perfect UI.',
   'Passionate about clean code, thoughtful design, and products that genuinely matter.',
-  '5+ years shipping fullstack solutions across SaaS, fintech, and consumer products.',
+  '4+ years shipping fullstack solutions across SaaS, fintech, and consumer products.',
 ];
 
 export const SKILLS = [
