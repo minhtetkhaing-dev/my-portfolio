@@ -10,6 +10,7 @@ type NavProps = {
 
 export default function Nav({ theme, onToggleTheme }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const isDark = theme === 'dark';
 
   useEffect(() => {
@@ -18,15 +19,40 @@ export default function Nav({ theme, onToggleTheme }: NavProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 640) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={scrolled ? 'nav-scrolled' : ''}>
       <div className="nav-logo">MHK</div>
       <div className="nav-actions">
-        <ul className="nav-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <button
+          type="button"
+          className="nav-menu-toggle"
+          onClick={() => setMenuOpen((current) => !current)}
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+        >
+          <span />
+          <span />
+        </button>
+        <ul className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
+          <li><a href="#hero" onClick={handleNavClick}>Home</a></li>
+          <li><a href="#skills" onClick={handleNavClick}>Skills</a></li>
+          <li><a href="#experience" onClick={handleNavClick}>Experience</a></li>
+          <li><a href="#contact" onClick={handleNavClick}>Contact</a></li>
         </ul>
         <button
           type="button"
