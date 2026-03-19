@@ -1,6 +1,7 @@
-import React from 'react';
-import { PHRASES } from '../data/content';
-import { useTypewriter } from '../hooks/useTypewriter';
+'use client';
+
+import { useTypewriter } from '@/hooks/useTypewriter';
+import { PHRASES } from '@/lib/content';
 
 export default function Hero() {
   const typed = useTypewriter(PHRASES);
@@ -10,7 +11,9 @@ export default function Hero() {
       <div className="hero-left">
         <p className="hero-eyebrow">I am</p>
         <h1>
-          Min Htet <em>Khaing</em>
+          Min Htet
+          {' '}
+          <em>Khaing</em>
         </h1>
         <p className="hero-subtitle">Fullstack Developer</p>
         <div id="typewriter-wrap">

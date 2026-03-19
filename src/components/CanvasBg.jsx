@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export default function CanvasBg() {
+export default function CanvasBg({ theme }) {
   const ref = useRef(null);
   const mouse = useRef({ x: 0, y: 0 });
 
@@ -11,6 +11,7 @@ export default function CanvasBg() {
     let W;
     let H;
     let t = 0;
+    const isLight = theme === 'light';
 
     const lines = Array.from({ length: 6 }, () => ({
       x: Math.random() * 1200,
@@ -23,11 +24,20 @@ export default function CanvasBg() {
       width: 0.5 + Math.random(),
     }));
 
-    const orbs = [
-      { x: 0.15, y: 0.2, r: 420, color: '139,78,42', sx: 0.00015, sy: 0.0001 },
-      { x: 0.85, y: 0.7, r: 380, color: '90,107,82', sx: -0.00012, sy: 0.00015 },
-      { x: 0.5, y: 0.5, r: 300, color: '201,168,76', sx: 0.0001, sy: -0.00012 },
-    ];
+    const orbs = isLight
+      ? [
+          { x: 0.15, y: 0.2, r: 420, color: '220,169,126', sx: 0.00015, sy: 0.0001 },
+          { x: 0.85, y: 0.7, r: 380, color: '128,152,120', sx: -0.00012, sy: 0.00015 },
+          { x: 0.5, y: 0.5, r: 300, color: '201,168,76', sx: 0.0001, sy: -0.00012 },
+        ]
+      : [
+          { x: 0.15, y: 0.2, r: 420, color: '139,78,42', sx: 0.00015, sy: 0.0001 },
+          { x: 0.85, y: 0.7, r: 380, color: '90,107,82', sx: -0.00012, sy: 0.00015 },
+          { x: 0.5, y: 0.5, r: 300, color: '201,168,76', sx: 0.0001, sy: -0.00012 },
+        ];
+
+    const lineColor = isLight ? '124,92,47' : '201,168,76';
+    const mouseGlow = isLight ? 'rgba(124,92,47,0.06)' : 'rgba(201,168,76,0.04)';
 
     const resize = () => {
       W = canvas.width = window.innerWidth;
@@ -64,7 +74,7 @@ export default function CanvasBg() {
         if (l.y < -l.len) l.y = H + l.len;
         if (l.y > H + l.len) l.y = -l.len;
 
-        ctx.strokeStyle = `rgba(201,168,76,${l.opacity})`;
+        ctx.strokeStyle = `rgba(${lineColor},${l.opacity})`;
         ctx.lineWidth = l.width;
         ctx.beginPath();
         ctx.moveTo(l.x, l.y);
@@ -73,7 +83,7 @@ export default function CanvasBg() {
       });
 
       const mg = ctx.createRadialGradient(mouse.current.x, mouse.current.y, 0, mouse.current.x, mouse.current.y, 200);
-      mg.addColorStop(0, 'rgba(201,168,76,0.04)');
+      mg.addColorStop(0, mouseGlow);
       mg.addColorStop(1, 'rgba(201,168,76,0)');
       ctx.fillStyle = mg;
       ctx.fillRect(0, 0, W, H);
@@ -91,7 +101,7 @@ export default function CanvasBg() {
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouse);
     };
-  }, []);
+  }, [theme]);
 
   return <canvas id="bg-canvas" ref={ref} />;
 }

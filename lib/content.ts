@@ -1,29 +1,26 @@
 export const PHRASES = [
-  'I craft scalable, elegant web applications — from architecture to pixel-perfect UI.',
+  'I craft scalable, elegant web applications - from architecture to pixel-perfect UI.',
   'Passionate about clean code, thoughtful design, and products that genuinely matter.',
   '5+ years shipping fullstack solutions across SaaS, fintech, and consumer products.',
-];
+] as const;
 
 export const SKILLS = [
   { icon: '⬡', cat: 'Frontend', name: 'UI Engineering', tags: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'HTML/CSS', 'Bootstrap'], num: '01' },
   { icon: '◈', cat: 'Backend', name: 'Server Architecture', tags: ['Python', 'PHP', 'Odoo', 'Django', 'Laravel'], num: '02' },
   { icon: '▦', cat: 'Database', name: 'Data Systems', tags: ['PostgreSQL', 'MySQL', 'Redis'], num: '03' },
-  // { icon: '◉', cat: 'Others', name: 'Others', tags: ['Git', 'AWS', 'CI/CD', 'Kubernetes', 'Terraform'], num: '04' },
-  // { icon: '⬟', cat: 'Mobile', name: 'Cross-Platform', tags: ['React Native', 'Expo', 'iOS', 'Android', 'PWA'], num: '05' },
-  // { icon: '✦', cat: 'Emerging', name: 'AI & Tooling', tags: ['OpenAI API', 'LangChain', 'Pinecone', 'Vercel AI SDK'], num: '06' },
-];
+] as const;
 
 export const EXPERIENCES = [
   {
-    date: '2023 — 2026',
+    date: '2023 - 2026',
     company: 'OneTerrace',
     type: 'Full-time',
     role: 'Backend Developer',
-    desc: 'Built and shipped five client products end-to-end — from database schema to pixel-perfect UI. Introduced GraphQL subscriptions enabling real-time features that increased user engagement by 38%.',
+    desc: 'Built and shipped five client products end-to-end - from database schema to pixel-perfect UI. Introduced GraphQL subscriptions enabling real-time features that increased user engagement by 38%.',
     tech: ['PHP', 'Laravel', 'Python', 'Django', 'MySQL', 'PostgreSQL', 'Next.js', 'TypeScript', 'Tailwind', 'HTML/CSS'],
   },
   {
-    date: '2021 — 2023',
+    date: '2021 - 2023',
     company: 'Myanmar Software Integrated Solutions (MSIS)',
     type: 'Full-time',
     role: 'Odoo ERP Developer',
@@ -31,11 +28,11 @@ export const EXPERIENCES = [
     tech: ['JavaScript', 'Python', 'Django', 'Odoo', 'XML', 'PostgreSQL', 'QWeb', 'HTML/CSS', 'Bootstrap'],
   },
   {
-    date: '2020 — 2021',
+    date: '2020 - 2021',
     company: 'Asia Brightway Co., Ltd.',
     type: 'Internship',
     role: 'C# Developer',
     desc: 'Developed Windows desktop applications using C# and MS SQL Server. Created data-driven solutions and automated Excel reporting systems.',
     tech: ['C#', 'MySQL'],
   },
-];
+] as const;

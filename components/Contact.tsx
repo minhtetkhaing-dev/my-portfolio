@@ -1,28 +1,43 @@
-import React, { useState } from 'react';
-import Divider from './Divider';
-import SectionHeader from './SectionHeader';
+'use client';
+
+import { useEffect, useState } from 'react';
+import Divider from '@/components/Divider';
+import SectionHeader from '@/components/SectionHeader';
 
 const LINKS = [
   { icon: '✉', text: 'minhtetkhaing.dev@gmail.com', label: 'Email', href: 'mailto:minhtetkhaing.dev@gmail.com' },
   { icon: '⌗', text: 'github.com/minhtetkhaing-dev', label: 'GitHub', href: 'https://github.com/minhtetkhaing-dev' },
   { icon: '◈', text: 'linkedin.com/in/minhtetkhaing', label: 'LinkedIn', href: 'https://www.linkedin.com/in/min-htet-khaing/' },
-  // { icon: '✦', text: '@minhtetkhaing_dev', label: 'Twitter / X', href: '#' },
-];
+] as const;
+
+type FormState = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle');
-  const [feedback, setFeedback] = useState('');
+  const [form, setForm] = useState<FormState>({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'sending'>('idle');
+  const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  useEffect(() => {
+    if (!toast) {
+      return undefined;
+    }
+
+    const timeout = window.setTimeout(() => setToast(null), 3200);
+    return () => window.clearTimeout(timeout);
+  }, [toast]);
 
   const handleSubmit = async () => {
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      setStatus('error');
-      setFeedback('Please fill in your name, email, and message.');
+      setToast({ type: 'error', message: 'Please fill in your name, email, and message.' });
       return;
     }
 
     setStatus('sending');
-    setFeedback('');
+    setToast(null);
 
     try {
       const response = await fetch('/api/contact', {
@@ -34,30 +49,37 @@ export default function Contact() {
       });
 
       const rawBody = await response.text();
-      let data = null;
+      let data: { message?: string } | null = null;
 
       if (rawBody) {
         try {
-          data = JSON.parse(rawBody);
+          data = JSON.parse(rawBody) as { message?: string };
         } catch {
           data = null;
         }
       }
 
       if (!response.ok) {
-        const fallbackMessage = response.status >= 500
-          ? 'Mail service is unavailable right now. Make sure the server is running and your .env mail settings are filled in.'
-          : 'Unable to send message right now.';
+        const fallbackMessage =
+          response.status >= 500
+            ? 'Mail service is unavailable right now. Make sure your Next.js environment variables are set correctly.'
+            : 'Unable to send message right now.';
 
         throw new Error(data?.message || fallbackMessage);
       }
 
-      setStatus('success');
-      setFeedback(data?.message || 'Message sent successfully. I will get back to you soon.');
+      setStatus('idle');
+      setToast({
+        type: 'success',
+        message: data?.message || 'Message sent successfully. I will get back to you soon.',
+      });
       setForm({ name: '', email: '', message: '' });
     } catch (error) {
-      setStatus('error');
-      setFeedback(error.message || 'Unable to send message right now.');
+      setStatus('idle');
+      setToast({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Unable to send message right now.',
+      });
     }
   };
 
@@ -69,7 +91,9 @@ export default function Contact() {
       <div className="contact-inner">
         <div className="contact-left reveal">
           <p className="contact-desc">
-            Whether you have a project in mind, want to explore collaboration, or simply want to say hello — I&apos;m always open to thoughtful conversations about meaningful work.
+            Whether you have a project in mind, want to explore collaboration, or simply want to say hello
+            {' '}
+            - I&apos;m always open to thoughtful conversations about meaningful work.
           </p>
 
           <div className="contact-links">
@@ -85,59 +109,56 @@ export default function Contact() {
 
         <div className="contact-form reveal reveal-delay-2">
           <div className="form-group">
-            <label className="form-label">Your Name</label>
+            <label className="form-label" htmlFor="contact-name">Your Name</label>
             <input
+              id="contact-name"
               type="text"
               className="form-input"
               placeholder="Your Name"
               value={form.name}
-              onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
+              onChange={(event) => setForm((prev) => ({ ...prev, name: event.target.value }))}
             />
           </div>
 
           <div className="form-group">
-            <label className="form-label">Email Address</label>
+            <label className="form-label" htmlFor="contact-email">Email Address</label>
             <input
+              id="contact-email"
               type="email"
               className="form-input"
               placeholder="your-mail@mail.com"
               value={form.email}
-              onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
+              onChange={(event) => setForm((prev) => ({ ...prev, email: event.target.value }))}
             />
           </div>
 
           <div className="form-group">
-            <label className="form-label">Message</label>
+            <label className="form-label" htmlFor="contact-message">Message</label>
             <textarea
+              id="contact-message"
               className="form-textarea"
-              placeholder="Tell me about your project or just say hello…"
+              placeholder="Tell me about your project or just say hello..."
               value={form.message}
-              onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
+              onChange={(event) => setForm((prev) => ({ ...prev, message: event.target.value }))}
             />
           </div>
 
           <button
-            className={`btn-primary contact-submit ${status === 'success' ? 'is-sent' : ''}`}
+            className="btn-primary contact-submit"
             onClick={handleSubmit}
             type="button"
             disabled={status === 'sending'}
           >
-            <span>
-              {status === 'sending'
-                ? 'Sending...'
-                : status === 'success'
-                  ? 'Message Sent ✓'
-                  : 'Send Message'}
-            </span>
+            <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
           </button>
-
-          {feedback ? (
-            <p className={`form-feedback ${status === 'error' ? 'is-error' : 'is-success'}`}>
-              {feedback}
-            </p>
-          ) : null}
         </div>
       </div>
+
+      {toast ? (
+        <div className={`contact-toast is-${toast.type}`} role="status" aria-live="polite">
+          {toast.message}
+        </div>
+      ) : null}
     </section>
   );
 }
