@@ -213,15 +213,23 @@ export default function Hero() {
 
       {/* marquee of all skills at bottom */}
       <div className="absolute bottom-0 left-0 right-0 border-y border-fg-5 bg-fg-5/40 py-3 backdrop-blur-sm">
-        <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap">
-          {[...SKILLS, ...SKILLS].map((s, i) => (
-            <span
-              key={i}
-              className="flex items-center gap-2 font-mono text-sm text-muted-60"
+        <div className="flex w-max animate-marquee whitespace-nowrap will-change-transform">
+          {[false, true].map((isDuplicate) => (
+            <div
+              key={String(isDuplicate)}
+              aria-hidden={isDuplicate || undefined}
+              className="flex shrink-0 items-center gap-10 pr-10"
             >
-              <s.icon style={{ color: s.color }} />
-              {s.name}
-            </span>
+              {SKILLS.map((skill) => (
+                <span
+                  key={skill.name}
+                  className="flex items-center gap-2 font-mono text-sm text-muted-60"
+                >
+                  <skill.icon style={{ color: skill.color }} />
+                  {skill.name}
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </div>
