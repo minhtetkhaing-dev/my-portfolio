@@ -1,0 +1,79 @@
+<svg width="640" height="800" viewBox="0 0 640 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="640" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a1a2e"/>
+      <stop offset="0.5" stop-color="#15151f"/>
+      <stop offset="1" stop-color="#0a0a0f"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.25" cy="0.2" r="0.6">
+      <stop stop-color="#7C5CFF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#7C5CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.8" cy="0.75" r="0.6">
+      <stop stop-color="#22D3EE" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#3a2a5a"/>
+      <stop offset="1" stop-color="#2a1d44"/>
+    </linearGradient>
+    <linearGradient id="hoodieGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#2d1b69"/>
+      <stop offset="1" stop-color="#1a103f"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="800" fill="url(#bgGrad)"/>
+  <rect width="640" height="800" fill="url(#glow1)"/>
+  <rect width="640" height="800" fill="url(#glow2)"/>
+
+  <!-- grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 100 H640 M0 200 H640 M0 300 H640 M0 400 H640 M0 500 H640 M0 600 H640 M0 700 H640"/>
+    <path d="M100 0 V800 M200 0 V800 M300 0 V800 M400 0 V800 M500 0 V800"/>
+  </g>
+
+  <!-- body / hoodie -->
+  <path d="M150 800 C150 620 230 540 320 540 C410 540 490 620 490 800 Z" fill="url(#hoodieGrad)"/>
+  <path d="M240 560 C270 610 370 610 400 560 L395 540 L245 540 Z" fill="#0a0a0f" opacity="0.5"/>
+
+  <!-- neck -->
+  <rect x="290" y="470" width="60" height="80" rx="20" fill="url(#skinGrad)"/>
+
+  <!-- head -->
+  <ellipse cx="320" cy="360" rx="130" ry="150" fill="url(#skinGrad)"/>
+
+  <!-- hair -->
+  <path d="M190 340 C190 230 240 180 320 180 C400 180 450 230 450 340 C450 300 430 270 400 260 C380 250 360 270 320 270 C280 270 260 250 240 260 C210 270 195 300 190 340 Z" fill="#0f0a1f"/>
+
+  <!-- glasses -->
+  <g fill="none" stroke="url(#accentGrad)" stroke-width="6">
+    <rect x="232" y="335" width="70" height="50" rx="14"/>
+    <rect x="338" y="335" width="70" height="50" rx="14"/>
+    <path d="M302 358 L338 358"/>
+    <path d="M232 355 L200 350"/>
+    <path d="M408 355 L440 350"/>
+  </g>
+  <g fill="#22D3EE">
+    <circle cx="267" cy="360" r="6"/>
+    <circle cx="373" cy="360" r="6"/>
+  </g>
+
+  <!-- smile -->
+  <path d="M285 425 C300 445 340 445 355 425" stroke="#1a103f" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- hoodie accent stitch -->
+  <path d="M230 640 C260 660 380 660 410 640" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="2 12"/>
+
+  <!-- floating code hint -->
+  <g font-family="monospace" font-size="22" fill="#22D3EE" opacity="0.55">
+    <text x="60" y="150">&lt;/&gt;</text>
+    <text x="520" y="180">{ }</text>
+    <text x="70" y="700" fill="#7C5CFF">git push</text>
+    <text x="500" y="690">npm run dev</text>
+  </g>
+</svg>
