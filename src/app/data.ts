@@ -28,7 +28,7 @@ export const PROFILE = {
   githubHandle: "mhk-dev",
   linkedin: "https://linkedin.com/in/min-htet-khaing",
   linkedinHandle: "min-htet-khaing",
-  photo: "/profile.svg", // <-- replace this file in /public with your photo
+  photo: "/profile.jpg", // <-- replace this file in /public with your photo
   available: true,
 };
 
