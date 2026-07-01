@@ -18,7 +18,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: `${PROFILE.name} — ${PROFILE.role}`,
-  description: `${PROFILE.role} with 4+ years of experience. ${PROFILE.tagline} PHP, Python, JavaScript, Laravel, WordPress, Django, Odoo, MySQL, PostgreSQL & Git.`,
+  description: `${PROFILE.role} with 5+ years of experience. ${PROFILE.tagline} PHP, Python, JavaScript, Laravel, WordPress, Django, Odoo, MySQL, PostgreSQL & Git.`,
   keywords: [
     "developer",
     "full-stack",
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
   authors: [{ name: PROFILE.name }],
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/profile.svg", type: "image/svg+xml", sizes: "any" },
     ],
     apple: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/profile.svg", type: "image/svg+xml" },
     ],
   },
   openGraph: {
     title: `${PROFILE.name} — ${PROFILE.role}`,
-    description: `${PROFILE.role} with 4+ years of experience building robust web applications.`,
+    description: `${PROFILE.role} with 5+ years of experience building robust web applications.`,
     type: "website",
   },
 };

@@ -28,9 +28,9 @@ export default function Experience() {
             Professional <span className="gradient-text">Experience</span>
           </h2>
           <p className="text-muted">
-            Four years across agencies and product teams — committed to every
-            commit below. Building everything from ERP modules to high-traffic
-            SaaS platforms.
+            Five-plus years building business software across Myanmar and
+            Japan, from Windows applications and ERP systems to e-commerce
+            sites and modern full-stack web products.
           </p>
         </motion.div>
 

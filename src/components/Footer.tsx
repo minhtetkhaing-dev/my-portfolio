@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FiArrowUp, FiHeart } from "react-icons/fi";
 import { NAV_LINKS, PROFILE } from "../app/data";
 
@@ -10,8 +11,14 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div className="text-center md:text-left">
             <a href="#home" className="flex items-center justify-center gap-2 md:justify-start">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-cyan font-mono text-sm font-bold text-white">
-                {PROFILE.initials}
+              <span className="relative h-9 w-9 overflow-hidden rounded-lg border border-fg-10">
+                <Image
+                  src={PROFILE.logo}
+                  alt=""
+                  fill
+                  sizes="36px"
+                  className="object-cover"
+                />
               </span>
               <span className="font-semibold tracking-tight text-fg">
                 MHK<span className="text-accent">.</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineMenuAlt4, HiX } from "react-icons/hi";
 import { NAV_LINKS, PROFILE } from "../app/data";
@@ -45,8 +46,15 @@ export default function Navbar() {
     >
       <nav className="section-shell flex h-16 items-center justify-between">
         <a href="#home" className="group flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-cyan font-mono text-sm font-bold text-white shadow-lg shadow-accent/30">
-            {PROFILE.initials}
+          <span className="relative h-9 w-9 overflow-hidden rounded-lg border border-fg-10 shadow-lg shadow-accent/30">
+            <Image
+              src={PROFILE.logo}
+              alt=""
+              fill
+              sizes="36px"
+              className="object-cover"
+              priority
+            />
           </span>
           <span className="font-semibold tracking-tight text-fg">
             MHK<span className="text-accent">.</span>

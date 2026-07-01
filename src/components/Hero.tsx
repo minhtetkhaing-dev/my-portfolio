@@ -67,7 +67,7 @@ export default function Hero() {
             className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg"
           >
             {PROFILE.role} with{" "}
-            <strong className="font-semibold text-fg">4+ years</strong> of
+            <strong className="font-semibold text-fg">5+ years</strong> of
             experience turning ideas into robust web applications — from custom
             Laravel platforms to Odoo ERPs and headless WordPress builds.
           </motion.p>
