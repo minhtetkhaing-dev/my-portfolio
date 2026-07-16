@@ -96,7 +96,10 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
+            type="button"
             aria-label="Toggle menu"
+            aria-controls="mobile-menu"
+            aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-fg-10 bg-fg-5 text-fg md:hidden"
           >
@@ -109,11 +112,12 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-b border-fg-5 bg-bg/95 backdrop-blur-xl md:hidden"
+            className="fixed left-0 right-0 top-16 z-50 overflow-hidden border-b border-fg-5 bg-bg/95 shadow-2xl shadow-black/20 backdrop-blur-xl md:hidden"
           >
             <ul className="section-shell flex flex-col gap-1 py-4">
               {NAV_LINKS.map((link) => (
@@ -127,6 +131,15 @@ export default function Navbar() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="mt-2 block rounded-lg bg-accent px-4 py-3 text-center text-base font-semibold text-white"
+                >
+                  Let&apos;s talk
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}
